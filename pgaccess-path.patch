@@ -1,11 +1,31 @@
---- pgaccess-0.98.8/pgaccess.tcl.orig	Mon Dec  2 04:57:56 2002
-+++ pgaccess-0.98.8/pgaccess.tcl	Thu Mar 13 00:04:23 2003
-@@ -42,7 +42,7 @@
+diff -urN pgaccess-0.98.8.20030520.orig/pgaccess.tcl pgaccess-0.98.8.20030520/pgaccess.tcl
+--- pgaccess-0.98.8.20030520.orig/pgaccess.tcl	2003-05-21 01:47:49.000000000 +0200
++++ pgaccess-0.98.8.20030520/pgaccess.tcl	2003-09-18 22:58:43.000000000 +0200
+@@ -110,17 +110,7 @@
  
- 				puts $fid "# pgaccess home directory"
- 				if {![info exists env(PGACCESS_HOME)]} {
--					set env(PGACCESS_HOME) "/usr/lib/pgaccess"
-+					set env(PGACCESS_HOME) "/usr/share/pgaccess"
+ 	# the script's home dir
+ 	if {![info exists PgAcVar(PGACCESS_HOME)]} {
+-		set home [file dirname [info script]]
+-		switch [file pathtype $home] {
+-			absolute {set PgAcVar(PGACCESS_HOME) $home}
+-			relative {set PgAcVar(PGACCESS_HOME) [file join [pwd] $home]}
+-			volumerelative {
+-				set curdir [pwd]
+-				cd $home
+-				set PgAcVar(PGACCESS_HOME) [file join [pwd] [file dirname [file join [lrange [file split $home] 1 end]]]]
+-				cd $curdir
+-			}
+-		}
++		set PgAcVar(PGACCESS_HOME) /usr/share/pgaccess
+ 		puts "\tPGACCESS_HOME: $PgAcVar(PGACCESS_HOME)"
+ 	}
+ 	
+@@ -387,7 +387,7 @@
+ 				if {[info exists PgAcVar(PGACCESS_HOME)]} {
+ 					puts $fid "# PGACCESS_HOME = $PgAcVar(PGACCESS_HOME)"
+ 				} else {
+-					puts $fid "# PGACCESS_HOME = /usr/lib/pgaccess"
++					puts $fid "# PGACCESS_HOME = /usr/share/pgaccess"
  				}
- 				puts $fid "PGACCESS_HOME=$env(PGACCESS_HOME)"
  				puts $fid ""
+ 				close $fid
