@@ -1,11 +1,15 @@
-diff -urN pgaccess-0.98.8.20030520.orig/pgaccess.tcl pgaccess-0.98.8.20030520/pgaccess.tcl
---- pgaccess-0.98.8.20030520.orig/pgaccess.tcl	2003-05-21 01:47:49.000000000 +0200
-+++ pgaccess-0.98.8.20030520/pgaccess.tcl	2003-09-18 22:58:43.000000000 +0200
-@@ -110,17 +110,7 @@
+--- pgaccess-0_99_0_20040219/pgaccess.tcl.orig	2004-02-20 03:08:02.000000000 +0100
++++ pgaccess-0_99_0_20040219/pgaccess.tcl	2004-04-13 00:51:41.308662304 +0200
+@@ -235,22 +235,7 @@
  
  	# the script's home dir
  	if {![info exists PgAcVar(PGACCESS_HOME)]} {
--		set home [file dirname [info script]]
+-        set tmphome [info script]
+-        if {[file type $tmphome] == "link"} {
+-            set home [file dirname [file readlink $tmphome]]
+-        } else {
+-            set home [file dirname [info script]]
+-        }
 -		switch [file pathtype $home] {
 -			absolute {set PgAcVar(PGACCESS_HOME) $home}
 -			relative {set PgAcVar(PGACCESS_HOME) [file join [pwd] $home]}
@@ -17,10 +21,10 @@ diff -urN pgaccess-0.98.8.20030520.orig/pgaccess.tcl pgaccess-0.98.8.20030520/pg
 -			}
 -		}
 +		set PgAcVar(PGACCESS_HOME) /usr/share/pgaccess
- 		puts "\tPGACCESS_HOME: $PgAcVar(PGACCESS_HOME)"
+ 		debug "\tPGACCESS_HOME: $PgAcVar(PGACCESS_HOME)"
  	}
  	
-@@ -387,7 +387,7 @@
+@@ -695,7 +680,7 @@
  				if {[info exists PgAcVar(PGACCESS_HOME)]} {
  					puts $fid "# PGACCESS_HOME = $PgAcVar(PGACCESS_HOME)"
  				} else {

@@ -1,12 +1,11 @@
-diff -urN pgaccess-0.98.8.20030520.orig/pgaccess.tcl pgaccess-0.98.8.20030520/pgaccess.tcl
---- pgaccess-0.98.8.20030520.orig/pgaccess.tcl	2003-09-18 22:58:43.000000000 +0200
-+++ pgaccess-0.98.8.20030520/pgaccess.tcl	2003-09-18 23:05:45.000000000 +0200
-@@ -441,7 +441,7 @@
- 
-     # only load PGLIB if PGINTCL not specified on command line
-     if {![info exists PgAcVar(PGINTCL)]} {
--		set shlib [file join $PgAcVar(PGLIB) libpgtcl][info sharedlibextension]
-+		set shlib [file join $PgAcVar(PGLIB) libpgtcl].so.2
- 		if {![file exists $shlib]} {
- 			puts "\nError: Shared library file: '$shlib' does not exist. \n\
- 				Check this file, or check PGLIB variable (in pgaccess.cfg)\n"
+--- pgaccess-0_99_0_20040219/pgaccess.tcl.orig	2004-04-13 00:52:14.362637336 +0200
++++ pgaccess-0_99_0_20040219/pgaccess.tcl	2004-04-13 00:53:23.092188856 +0200
+@@ -740,7 +740,7 @@
+         # now that pgtcl is a proper tcl package, try it
+         if {[catch {package require Pgtcl} msg]} {
+             debug "\tCouldn't use the new Pgtcl package."
+-			set shlib [file join $PgAcVar(PGLIB) libpgtcl][info sharedlibextension]
++			set shlib [file join $PgAcVar(PGLIB) libpgtcl].so.2
+ 			if {![file exists $shlib]} {
+ 				debug "\nError: Shared library file: '$shlib' does not exist. \n\
+ 					Check this file, or check PGLIB variable (in pgaccess.cfg)\n"
