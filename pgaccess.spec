@@ -1,13 +1,14 @@
 Summary:	A free graphical database management tool for PostgreSQL
 Summary(pl):	Graficzne narzêdzie do obs³ugi baz danych PostgreSQL
 Name:		pgaccess
-Version:	0.98.8.20030520
+Version:	0.99.0.20040219
+%define	fver	%(echo %{version} | tr . _)
 Release:	1
 Epoch:		1
 License:	BSD
 Group:		Applications/Databases
-Source0:	http://dl.sourceforge.net/pgaccess/%{name}-%{version}.tar.gz
-# Source0-md5:	d1733a01cfc796e26ec7d49a467d20cd
+Source0:	http://dl.sourceforge.net/pgaccess/%{name}-%{fver}.tgz
+# Source0-md5:	5440a130da909368a7274ac6f4578039
 Source1:	pgaccess.desktop
 Source2:	pgaccess.png
 Patch0:		%{name}-path.patch
@@ -26,19 +27,19 @@ A free graphical database management tool for PostgreSQL.
 Graficzne narzêdzie do obs³ugi baz danych PostgreSQL.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{fver}
 %patch0 -p1
 %patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/pgaccess} \
-	$RPM_BUILD_ROOT{%{_applnkdir}/System,%{_pixmapsdir}}
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 cp -Rf extra images lib pgaccess.tcl pgmonitor $RPM_BUILD_ROOT%{_datadir}/pgaccess
 ln -sf %{_datadir}/pgaccess/pgaccess.tcl $RPM_BUILD_ROOT%{_bindir}/pgaccess
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/System
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -54,5 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pgaccess/extra
 %{_datadir}/pgaccess/images
 %{_datadir}/pgaccess/lib
-%{_applnkdir}/System/pgaccess.desktop
+%{_desktopdir}/pgaccess.desktop
 %{_pixmapsdir}/pgaccess.png
