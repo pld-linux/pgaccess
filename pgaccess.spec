@@ -2,7 +2,7 @@ Summary:	A free graphical database management tool for PostgreSQL
 Summary(pl):	Graficzne narzêdzie do obs³ugi baz danych PostgreSQL
 Name:		pgaccess
 Version:	0.98.8
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD
 Group:		Applications/Databases
@@ -11,6 +11,7 @@ Source0:	http://www.pgaccess.org/download/%{name}-%{version}.tar.gz
 Source1:	pgaccess.desktop
 Source2:	pgaccess.png
 Patch0:		%{name}-path.patch
+Patch1:		%{name}-soname-workaround.patch
 URL:		http://www.pgaccess.org/
 Requires:	postgresql-tcl >= 7.3
 Requires:	tcl >= 8.3
@@ -26,7 +27,8 @@ Graficzne narzêdzie do obs³ugi baz danych PostgreSQL.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
