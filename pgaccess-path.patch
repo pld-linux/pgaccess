@@ -1,0 +1,11 @@
+--- pgaccess-0.98.8/pgaccess.tcl.orig	Mon Dec  2 04:57:56 2002
++++ pgaccess-0.98.8/pgaccess.tcl	Thu Mar 13 00:04:23 2003
+@@ -42,7 +42,7 @@
+ 
+ 				puts $fid "# pgaccess home directory"
+ 				if {![info exists env(PGACCESS_HOME)]} {
+-					set env(PGACCESS_HOME) "/usr/lib/pgaccess"
++					set env(PGACCESS_HOME) "/usr/share/pgaccess"
+ 				}
+ 				puts $fid "PGACCESS_HOME=$env(PGACCESS_HOME)"
+ 				puts $fid ""
