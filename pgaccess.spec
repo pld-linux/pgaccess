@@ -7,6 +7,7 @@ Epoch:		1
 License:	BSD
 Group:		Applications/Databases
 Source0:	http://www.pgaccess.org/download/%{name}-%{version}.tar.gz
+# Source0-md5:	5f24281f206369d6bc9623a11ec325ab
 Source1:	pgaccess.desktop
 Source2:	pgaccess.png
 Patch0:		%{name}-path.patch
