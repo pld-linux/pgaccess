@@ -1,13 +1,13 @@
 Summary:	A free graphical database management tool for PostgreSQL
 Summary(pl):	Graficzne narzêdzie do obs³ugi baz danych PostgreSQL
 Name:		pgaccess
-Version:	0.98.8
-Release:	2
+Version:	0.98.8.20030520
+Release:	1
 Epoch:		1
 License:	BSD
 Group:		Applications/Databases
-Source0:	http://www.pgaccess.org/download/%{name}-%{version}.tar.gz
-# Source0-md5:	5f24281f206369d6bc9623a11ec325ab
+Source0:	http://dl.sourceforge.net/pgaccess/%{name}-%{version}.tar.gz
+# Source0-md5:	d1733a01cfc796e26ec7d49a467d20cd
 Source1:	pgaccess.desktop
 Source2:	pgaccess.png
 Patch0:		%{name}-path.patch
