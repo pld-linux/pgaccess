@@ -3,7 +3,7 @@ Summary(pl):	Graficzne narzêdzie do obs³ugi baz danych PostgreSQL
 Name:		pgaccess
 Version:	0.99.0.20040219
 %define	fver	%(echo %{version} | tr . _)
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD
 Group:		Applications/Databases
