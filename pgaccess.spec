@@ -1,5 +1,5 @@
 Summary:	A free graphical database management tool for PostgreSQL
-Summary(pl.UTF-8):   Graficzne narzędzie do obsługi baz danych PostgreSQL
+Summary(pl.UTF-8):	Graficzne narzędzie do obsługi baz danych PostgreSQL
 Name:		pgaccess
 Version:	0.99.0.20040219
 %define	fver	%(echo %{version} | tr . _)
