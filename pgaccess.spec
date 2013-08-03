@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Graficzne narzędzie do obsługi baz danych PostgreSQL
 Name:		pgaccess
 Version:	0.99.0.20040219
 %define	fver	%(echo %{version} | tr . _)
-Release:	3
+Release:	4
 Epoch:		1
 License:	BSD
 Group:		Applications/Databases
@@ -14,7 +14,7 @@ Source2:	pgaccess.png
 Patch0:		%{name}-path.patch
 Patch1:		%{name}-soname-workaround.patch
 URL:		http://www.pgaccess.org/
-Requires:	tcl-libpgtcl
+Requires:	tcl-pgtcl
 Requires:	tcl >= 8.3
 Requires:	tk >= 8.3
 BuildArch:	noarch
